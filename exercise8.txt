@@ -1,0 +1,32 @@
+VRAAG 1:
+
+$ curl 'https://rest.ensemble.org/sequence/region/human/13:32889000..32891000:1?mask=soft' -H 'Content-type:text/x-fasta'
+
+$ curl 'https://rest.ensemble.org/sequence/region/human/13:32889000..32891000:1?mask=hard' -H 'Content-type:text/x-fasta'
+
+=> 4
+
+
+VRAAG 2:
+
+$ curl 'https://rest.ensemble.org/xrefs/symbol/human/CCR5' -H 'Content-type:text/xml'
+
+
+VRAAG 3:
+
+$ curl 'https://rest.ensemble.org/homology/symbol/human/CCR5?format=condensed; target_species=chimpanzee; type=orthologues' -H 'Content-type:application/json'
+
+
+VRAAG 4:
+
+$ curl 'https://rest.ensemble.org/sequence/id/ENSG00000003056?type=genomic' -H 'Content-type:text/x-fasta'
+
+
+VRAAG 5:
+
+$ curl 'https://rest.ensemble.org/sequence/id' -H 'Content-type:application/json' -H 'Accept:application/json' -X POST -d '{"ids" : ["ENGS00000002587", "ENGS00000003056"]}'
+
+
+VRAAG 6:
+
+$ curl 'https://rest.ensemble.org/sequence/region/human/7:35182..35431:1' -H 'Content-type:text/x-fasta'

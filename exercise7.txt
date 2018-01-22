@@ -1,0 +1,45 @@
+VRAAG 1:
+
+db.restaurants.find({},{"restaurant_id" : 1, "name" : 1, "borough" : 1, "cuisine" : 1});
+
+VRAAG 2:
+
+db.restaurants.find({borough : "Bronx"}).limit(5).skip(2);
+
+
+VRAAG 3:
+
+db.restaurants.find({grades : {$elemMatch : {score : {$gt : 90}}}});
+
+VRAAG 4:
+
+db.restaurants.find({cuisine : { $ne : "American "}, "grades.score" : {$gt : 70}, "address.coord" : {$lt : -65.754168}}).pretty();
+
+
+VRAAG 5:
+
+db.restaurants.find({"borough" : "Bronx", $or: [{"cuisine" : "American "} , {"cuisine" : "Chinese"}]});
+
+
+VRAAG 6:
+
+db.restaurants.find({"borough" : {$nin: ["Staten Island", "Queens", "Bronx", "Brooklyn"]}},{"restaurant_id" : 1, "name" : 1, "borough" : 1, "cuisine" : 1})
+
+
+VRAAG 7:
+
+db.restaurants.find({"grades.score" : {$not : {$gt:  10}}},{"restaurant_id" : 1, "name" : 1, "borough" : 1, "cuisine" : 1, "grades.score" : 1});
+
+VRAAG 8:
+
+db.restaurants.find({"grades.score" : 11, "grades.grade" : "A", "grades.date" : ISODate("2014-08-11T00:00:00Z")} , {"restaurant_id" : 1, "name" : 1, "grades.grade" : 1})
+
+VRAAG 9:
+
+db.restaurants.find().sort({cuisine : 1, borough : -1})
+
+VRAAG 10:
+
+db.restaurants.find({"address.street" : {$exists : true }})
+
+
